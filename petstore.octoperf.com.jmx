@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan jmeter="5.6.3" properties="5.0" version="1.2">
+   <hashTree>
+      <TestPlan enabled="true"
+                guiclass="TestPlanGui"
+                testclass="TestPlanGui"
+                testname="Test Plan">
+         <boolProp name="TestPlan.functional_mode">false</boolProp>
+         <boolProp name="TestPlan.tearDown_on_shutdown">false</boolProp>
+         <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+         <elementProp elementType="Arguments"
+                      enabled="true"
+                      guiclass="ArgumentsPanel"
+                      name="TestPlan.user_defined_variables"
+                      testclass="Arguments"
+                      testname="User Defined Variables">
+            <collectionProp name="Arguments.arguments"/>
+         </elementProp>
+         <stringProp name="TestPlan.comments">This test plan was created by io.github.vdaburon:har-to-jmeter-convertor Version 6.1</stringProp>
+         <stringProp name="TestPlan.user_define_classpath"/>
+      </TestPlan>
+      <hashTree>
+         <ThreadGroup enabled="true"
+                      guiclass="ThreadGroupGui"
+                      testclass="ThreadGroup"
+                      testname="Thead Group HAR Imported">
+            <stringProp name="ThreadGroup.num_threads">1</stringProp>
+            <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+            <elementProp elementType="LoopController"
+                         enabled="true"
+                         guiclass="LoopControlPanel"
+                         name="ThreadGroup.main_controller"
+                         testclass="LoopController"
+                         testname="">
+               <stringProp name="LoopController.loops">1</stringProp>
+               <boolProp name="LoopController.continue_forever">false</boolProp>
+            </elementProp>
+            <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+            <boolProp name="ThreadGroup.delayedStart">false</boolProp>
+            <boolProp name="ThreadGroup.scheduler">false</boolProp>
+            <stringProp name="ThreadGroup.duration"/>
+            <stringProp name="ThreadGroup.delay"/>
+            <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+         </ThreadGroup>
+         <hashTree>
+            <Arguments enabled="true"
+                       guiclass="ArgumentsPanel"
+                       testclass="Arguments"
+                       testname="User Defined Variables">
+               <collectionProp name="Arguments.arguments">
+                  <elementProp elementType="Argument" name="V_SCHEME">
+                     <stringProp name="Argument.name">V_SCHEME</stringProp>
+                     <stringProp name="Argument.value">https</stringProp>
+                     <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                  <elementProp elementType="Argument" name="V_HOST">
+                     <stringProp name="Argument.name">V_HOST</stringProp>
+                     <stringProp name="Argument.value">petstore.octoperf.com</stringProp>
+                     <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                  <elementProp elementType="Argument" name="V_PORT">
+                     <stringProp name="Argument.name">V_PORT</stringProp>
+                     <stringProp name="Argument.value">443</stringProp>
+                     <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+               </collectionProp>
+            </Arguments>
+            <hashTree/>
+            <ConfigTestElement enabled="true"
+                               guiclass="HttpDefaultsGui"
+                               testclass="ConfigTestElement"
+                               testname="HTTP Request Defaults">
+               <elementProp elementType="Arguments"
+                            enabled="true"
+                            guiclass="HTTPArgumentsPanel"
+                            name="HTTPsampler.Arguments"
+                            testclass="Arguments"
+                            testname="User Defined Variables"/>
+               <collectionProp name="Arguments.arguments"/>
+               <stringProp name="HTTPSampler.domain">${V_HOST}</stringProp>
+               <stringProp name="HTTPSampler.port">${V_PORT}</stringProp>
+               <stringProp name="HTTPSampler.protocol">${V_SCHEME}</stringProp>
+               <stringProp name="HTTPSampler.contentEncoding"/>
+               <stringProp name="HTTPSampler.path"/>
+               <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+               <stringProp name="HTTPSampler.connect_timeout"/>
+               <stringProp name="HTTPSampler.response_timeout"/>
+            </ConfigTestElement>
+            <hashTree/>
+            <CookieManager enabled="true"
+                           guiclass="CookiePanel"
+                           testclass="CookieManager"
+                           testname="HTTP Cookie Manager">
+               <collectionProp name="CookieManager.cookies"/>
+               <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+               <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
+            </CookieManager>
+            <hashTree/>
+            <CacheManager enabled="true"
+                          guiclass="CacheManagerGui"
+                          testclass="CacheManager"
+                          testname="HTTP Cache Manager">
+               <boolProp name="clearEachIteration">true</boolProp>
+               <boolProp name="useExpires">true</boolProp>
+               <boolProp name="CacheManager.controlledByThread">false</boolProp>
+            </CacheManager>
+            <hashTree/>
+            <TransactionController enabled="true"
+                                   guiclass="TransactionControllerGui"
+                                   testclass="TransactionController"
+                                   testname="PAGE_01 - /actions/Catalog.action;jsessionid=1AD41941AD0C63EE3447886D05359FED">
+               <boolProp name="TransactionController.parent">false</boolProp>
+               <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree/>
+            <TestAction enabled="true"
+                        guiclass="TestActionGui"
+                        testclass="TestAction"
+                        testname="Flow Control Action PAUSE">
+               <intProp name="ActionProcessor.action">1</intProp>
+               <intProp name="ActionProcessor.target">0</intProp>
+               <stringProp name="ActionProcessor.duration">1826</stringProp>
+            </TestAction>
+            <hashTree/>
+            <TransactionController enabled="true"
+                                   guiclass="TransactionControllerGui"
+                                   testclass="TransactionController"
+                                   testname="PAGE_02 - /actions/Catalog.action">
+               <boolProp name="TransactionController.parent">false</boolProp>
+               <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+               <HTTPSamplerProxy enabled="true"
+                                 guiclass="HttpTestSampleGui"
+                                 testclass="HTTPSamplerProxy"
+                                 testname="001 /actions/Catalog.action">
+                  <stringProp name="HTTPSampler.domain"/>
+                  <stringProp name="HTTPSampler.port"/>
+                  <stringProp name="HTTPSampler.protocol"/>
+                  <stringProp name="HTTPSampler.contentEncoding"/>
+                  <stringProp name="HTTPSampler.path">/actions/Catalog.action</stringProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"/>
+                  <stringProp name="HTTPSampler.connect_timeout"/>
+                  <stringProp name="HTTPSampler.response_timeout"/>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp elementType="Arguments"
+                               enabled="true"
+                               guiclass="HTTPArgumentsPanel"
+                               name="HTTPsampler.Arguments"
+                               testclass="Arguments">
+                     <collectionProp name="Arguments.arguments">
+                        <elementProp elementType="HTTPArgument" name="viewProduct">
+                           <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                           <stringProp name="Argument.name">viewProduct</stringProp>
+                           <stringProp name="Argument.value"/>
+                           <stringProp name="Argument.metadata">=</stringProp>
+                           <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        </elementProp>
+                        <elementProp elementType="HTTPArgument" name="productId">
+                           <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                           <stringProp name="Argument.name">productId</stringProp>
+                           <stringProp name="Argument.value">FI-SW-01</stringProp>
+                           <stringProp name="Argument.metadata">=</stringProp>
+                           <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        </elementProp>
+                     </collectionProp>
+                  </elementProp>
+               </HTTPSamplerProxy>
+               <hashTree>
+                  <HeaderManager enabled="true"
+                                 guiclass="HeaderPanel"
+                                 testclass="HeaderManager"
+                                 testname="HTTP Header Manager">
+                     <collectionProp name="HeaderManager.headers">
+                        <elementProp elementType="Header" name=":authority">
+                           <stringProp name="Header.name">:authority</stringProp>
+                           <stringProp name="Header.value">petstore.octoperf.com</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name=":method">
+                           <stringProp name="Header.name">:method</stringProp>
+                           <stringProp name="Header.value">GET</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name=":path">
+                           <stringProp name="Header.name">:path</stringProp>
+                           <stringProp name="Header.value">/actions/Catalog.action?viewProduct=&amp;productId=FI-SW-01</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name=":scheme">
+                           <stringProp name="Header.name">:scheme</stringProp>
+                           <stringProp name="Header.value">https</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="accept">
+                           <stringProp name="Header.name">accept</stringProp>
+                           <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="accept-encoding">
+                           <stringProp name="Header.name">accept-encoding</stringProp>
+                           <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="accept-language">
+                           <stringProp name="Header.name">accept-language</stringProp>
+                           <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="cache-control">
+                           <stringProp name="Header.name">cache-control</stringProp>
+                           <stringProp name="Header.value">no-cache</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="pragma">
+                           <stringProp name="Header.name">pragma</stringProp>
+                           <stringProp name="Header.value">no-cache</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="priority">
+                           <stringProp name="Header.name">priority</stringProp>
+                           <stringProp name="Header.value">u=0, i</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="referer">
+                           <stringProp name="Header.name">referer</stringProp>
+                           <stringProp name="Header.value">https://petstore.octoperf.com/actions/Catalog.action;jsessionid=1AD41941AD0C63EE3447886D05359FED?viewCategory=&amp;categoryId=FISH</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-ch-ua">
+                           <stringProp name="Header.name">sec-ch-ua</stringProp>
+                           <stringProp name="Header.value">"Not(A:Brand";v="99", "Google Chrome";v="133", "Chromium";v="133"</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-ch-ua-mobile">
+                           <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                           <stringProp name="Header.value">?0</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-ch-ua-platform">
+                           <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                           <stringProp name="Header.value">"Windows"</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-fetch-dest">
+                           <stringProp name="Header.name">sec-fetch-dest</stringProp>
+                           <stringProp name="Header.value">document</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-fetch-mode">
+                           <stringProp name="Header.name">sec-fetch-mode</stringProp>
+                           <stringProp name="Header.value">navigate</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-fetch-site">
+                           <stringProp name="Header.name">sec-fetch-site</stringProp>
+                           <stringProp name="Header.value">same-origin</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-fetch-user">
+                           <stringProp name="Header.name">sec-fetch-user</stringProp>
+                           <stringProp name="Header.value">?1</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="upgrade-insecure-requests">
+                           <stringProp name="Header.name">upgrade-insecure-requests</stringProp>
+                           <stringProp name="Header.value">1</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="user-agent">
+                           <stringProp name="Header.name">user-agent</stringProp>
+                           <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36</stringProp>
+                        </elementProp>
+                     </collectionProp>
+                  </HeaderManager>
+                  <hashTree/>
+               </hashTree>
+            </hashTree>
+            <TestAction enabled="true"
+                        guiclass="TestActionGui"
+                        testclass="TestAction"
+                        testname="Flow Control Action PAUSE">
+               <intProp name="ActionProcessor.action">1</intProp>
+               <intProp name="ActionProcessor.target">0</intProp>
+               <stringProp name="ActionProcessor.duration">3670</stringProp>
+            </TestAction>
+            <hashTree/>
+            <TransactionController enabled="true"
+                                   guiclass="TransactionControllerGui"
+                                   testclass="TransactionController"
+                                   testname="PAGE_03 - /actions/Cart.action">
+               <boolProp name="TransactionController.parent">false</boolProp>
+               <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+               <HTTPSamplerProxy enabled="true"
+                                 guiclass="HttpTestSampleGui"
+                                 testclass="HTTPSamplerProxy"
+                                 testname="002 /actions/Cart.action">
+                  <stringProp name="HTTPSampler.domain"/>
+                  <stringProp name="HTTPSampler.port"/>
+                  <stringProp name="HTTPSampler.protocol"/>
+                  <stringProp name="HTTPSampler.contentEncoding"/>
+                  <stringProp name="HTTPSampler.path">/actions/Cart.action</stringProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"/>
+                  <stringProp name="HTTPSampler.connect_timeout"/>
+                  <stringProp name="HTTPSampler.response_timeout"/>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp elementType="Arguments"
+                               enabled="true"
+                               guiclass="HTTPArgumentsPanel"
+                               name="HTTPsampler.Arguments"
+                               testclass="Arguments">
+                     <collectionProp name="Arguments.arguments">
+                        <elementProp elementType="HTTPArgument" name="addItemToCart">
+                           <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                           <stringProp name="Argument.name">addItemToCart</stringProp>
+                           <stringProp name="Argument.value"/>
+                           <stringProp name="Argument.metadata">=</stringProp>
+                           <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        </elementProp>
+                        <elementProp elementType="HTTPArgument" name="workingItemId">
+                           <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                           <stringProp name="Argument.name">workingItemId</stringProp>
+                           <stringProp name="Argument.value">EST-1</stringProp>
+                           <stringProp name="Argument.metadata">=</stringProp>
+                           <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        </elementProp>
+                     </collectionProp>
+                  </elementProp>
+               </HTTPSamplerProxy>
+               <hashTree>
+                  <HeaderManager enabled="true"
+                                 guiclass="HeaderPanel"
+                                 testclass="HeaderManager"
+                                 testname="HTTP Header Manager">
+                     <collectionProp name="HeaderManager.headers">
+                        <elementProp elementType="Header" name=":authority">
+                           <stringProp name="Header.name">:authority</stringProp>
+                           <stringProp name="Header.value">petstore.octoperf.com</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name=":method">
+                           <stringProp name="Header.name">:method</stringProp>
+                           <stringProp name="Header.value">GET</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name=":path">
+                           <stringProp name="Header.name">:path</stringProp>
+                           <stringProp name="Header.value">/actions/Cart.action?addItemToCart=&amp;workingItemId=EST-1</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name=":scheme">
+                           <stringProp name="Header.name">:scheme</stringProp>
+                           <stringProp name="Header.value">https</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="accept">
+                           <stringProp name="Header.name">accept</stringProp>
+                           <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="accept-encoding">
+                           <stringProp name="Header.name">accept-encoding</stringProp>
+                           <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="accept-language">
+                           <stringProp name="Header.name">accept-language</stringProp>
+                           <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="cache-control">
+                           <stringProp name="Header.name">cache-control</stringProp>
+                           <stringProp name="Header.value">no-cache</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="pragma">
+                           <stringProp name="Header.name">pragma</stringProp>
+                           <stringProp name="Header.value">no-cache</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="priority">
+                           <stringProp name="Header.name">priority</stringProp>
+                           <stringProp name="Header.value">u=0, i</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="referer">
+                           <stringProp name="Header.name">referer</stringProp>
+                           <stringProp name="Header.value">https://petstore.octoperf.com/actions/Catalog.action?viewProduct=&amp;productId=FI-SW-01</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-ch-ua">
+                           <stringProp name="Header.name">sec-ch-ua</stringProp>
+                           <stringProp name="Header.value">"Not(A:Brand";v="99", "Google Chrome";v="133", "Chromium";v="133"</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-ch-ua-mobile">
+                           <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                           <stringProp name="Header.value">?0</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-ch-ua-platform">
+                           <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                           <stringProp name="Header.value">"Windows"</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-fetch-dest">
+                           <stringProp name="Header.name">sec-fetch-dest</stringProp>
+                           <stringProp name="Header.value">document</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-fetch-mode">
+                           <stringProp name="Header.name">sec-fetch-mode</stringProp>
+                           <stringProp name="Header.value">navigate</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-fetch-site">
+                           <stringProp name="Header.name">sec-fetch-site</stringProp>
+                           <stringProp name="Header.value">same-origin</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-fetch-user">
+                           <stringProp name="Header.name">sec-fetch-user</stringProp>
+                           <stringProp name="Header.value">?1</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="upgrade-insecure-requests">
+                           <stringProp name="Header.name">upgrade-insecure-requests</stringProp>
+                           <stringProp name="Header.value">1</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="user-agent">
+                           <stringProp name="Header.name">user-agent</stringProp>
+                           <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36</stringProp>
+                        </elementProp>
+                     </collectionProp>
+                  </HeaderManager>
+                  <hashTree/>
+               </hashTree>
+            </hashTree>
+            <TestAction enabled="true"
+                        guiclass="TestActionGui"
+                        testclass="TestAction"
+                        testname="Flow Control Action PAUSE">
+               <intProp name="ActionProcessor.action">1</intProp>
+               <intProp name="ActionProcessor.target">0</intProp>
+               <stringProp name="ActionProcessor.duration">2618</stringProp>
+            </TestAction>
+            <hashTree/>
+            <TransactionController enabled="true"
+                                   guiclass="TransactionControllerGui"
+                                   testclass="TransactionController"
+                                   testname="PAGE_04 - /actions/Order.action">
+               <boolProp name="TransactionController.parent">false</boolProp>
+               <boolProp name="TransactionController.includeTimers">false</boolProp>
+            </TransactionController>
+            <hashTree>
+               <HTTPSamplerProxy enabled="true"
+                                 guiclass="HttpTestSampleGui"
+                                 testclass="HTTPSamplerProxy"
+                                 testname="003 /actions/Order.action">
+                  <stringProp name="HTTPSampler.domain"/>
+                  <stringProp name="HTTPSampler.port"/>
+                  <stringProp name="HTTPSampler.protocol"/>
+                  <stringProp name="HTTPSampler.contentEncoding"/>
+                  <stringProp name="HTTPSampler.path">/actions/Order.action</stringProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"/>
+                  <stringProp name="HTTPSampler.connect_timeout"/>
+                  <stringProp name="HTTPSampler.response_timeout"/>
+                  <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                  <elementProp elementType="Arguments"
+                               enabled="true"
+                               guiclass="HTTPArgumentsPanel"
+                               name="HTTPsampler.Arguments"
+                               testclass="Arguments">
+                     <collectionProp name="Arguments.arguments">
+                        <elementProp elementType="HTTPArgument" name="newOrderForm">
+                           <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                           <stringProp name="Argument.name">newOrderForm</stringProp>
+                           <stringProp name="Argument.value"/>
+                           <stringProp name="Argument.metadata">=</stringProp>
+                           <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        </elementProp>
+                     </collectionProp>
+                  </elementProp>
+               </HTTPSamplerProxy>
+               <hashTree>
+                  <HeaderManager enabled="true"
+                                 guiclass="HeaderPanel"
+                                 testclass="HeaderManager"
+                                 testname="HTTP Header Manager">
+                     <collectionProp name="HeaderManager.headers">
+                        <elementProp elementType="Header" name=":authority">
+                           <stringProp name="Header.name">:authority</stringProp>
+                           <stringProp name="Header.value">petstore.octoperf.com</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name=":method">
+                           <stringProp name="Header.name">:method</stringProp>
+                           <stringProp name="Header.value">GET</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name=":path">
+                           <stringProp name="Header.name">:path</stringProp>
+                           <stringProp name="Header.value">/actions/Order.action?newOrderForm=</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name=":scheme">
+                           <stringProp name="Header.name">:scheme</stringProp>
+                           <stringProp name="Header.value">https</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="accept">
+                           <stringProp name="Header.name">accept</stringProp>
+                           <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="accept-encoding">
+                           <stringProp name="Header.name">accept-encoding</stringProp>
+                           <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="accept-language">
+                           <stringProp name="Header.name">accept-language</stringProp>
+                           <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="cache-control">
+                           <stringProp name="Header.name">cache-control</stringProp>
+                           <stringProp name="Header.value">no-cache</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="pragma">
+                           <stringProp name="Header.name">pragma</stringProp>
+                           <stringProp name="Header.value">no-cache</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="priority">
+                           <stringProp name="Header.name">priority</stringProp>
+                           <stringProp name="Header.value">u=0, i</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="referer">
+                           <stringProp name="Header.name">referer</stringProp>
+                           <stringProp name="Header.value">https://petstore.octoperf.com/actions/Cart.action?addItemToCart=&amp;workingItemId=EST-1</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-ch-ua">
+                           <stringProp name="Header.name">sec-ch-ua</stringProp>
+                           <stringProp name="Header.value">"Not(A:Brand";v="99", "Google Chrome";v="133", "Chromium";v="133"</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-ch-ua-mobile">
+                           <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                           <stringProp name="Header.value">?0</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-ch-ua-platform">
+                           <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                           <stringProp name="Header.value">"Windows"</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-fetch-dest">
+                           <stringProp name="Header.name">sec-fetch-dest</stringProp>
+                           <stringProp name="Header.value">document</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-fetch-mode">
+                           <stringProp name="Header.name">sec-fetch-mode</stringProp>
+                           <stringProp name="Header.value">navigate</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-fetch-site">
+                           <stringProp name="Header.name">sec-fetch-site</stringProp>
+                           <stringProp name="Header.value">same-origin</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="sec-fetch-user">
+                           <stringProp name="Header.name">sec-fetch-user</stringProp>
+                           <stringProp name="Header.value">?1</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="upgrade-insecure-requests">
+                           <stringProp name="Header.name">upgrade-insecure-requests</stringProp>
+                           <stringProp name="Header.value">1</stringProp>
+                        </elementProp>
+                        <elementProp elementType="Header" name="user-agent">
+                           <stringProp name="Header.name">user-agent</stringProp>
+                           <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36</stringProp>
+                        </elementProp>
+                     </collectionProp>
+                  </HeaderManager>
+                  <hashTree/>
+               </hashTree>
+            </hashTree>
+         </hashTree>
+      </hashTree>
+   </hashTree>
+</jmeterTestPlan>
